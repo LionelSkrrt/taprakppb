@@ -8,8 +8,7 @@ export const PROFILE = {
     nim: '21120124130067',
     course: 'Praktikum Pemrograman Perangkat Bergerak (PPB) - Tugas Akhir',
   },
-  // Isi dengan link repository GitHub kamu.
-  githubUrl: 'https://github.com/',
+  githubUrl: 'https://github.com/LionelSkrrt/taprakppb',
   stack: [
     { name: 'React 19 + Vite', note: 'Antarmuka SPA berbasis komponen' },
     { name: 'React Router', note: 'Navigasi antar halaman & detail' },
