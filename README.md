@@ -63,7 +63,7 @@ npm run preview          # http://localhost:4173
 2. **SQL Editor** -> New query -> tempel isi [`api/supabase/schema.sql`](api/supabase/schema.sql) -> Run.
 3. New query lagi -> tempel isi [`api/supabase/seed.sql`](api/supabase/seed.sql) -> Run. (File ini dihasilkan dari `api/src/data/seed.js` lewat `npm run seed:sql`.)
 4. **Project Settings -> Data API** salin *Project URL*; **API Keys** salin *anon public*. Masukkan ke `api/.env` sebagai `SUPABASE_URL` dan `SUPABASE_KEY`.
-5. Jika tabel memakai Row Level Security, jalankan policy yang ada di komentar akhir `schema.sql`.
+5. RLS sudah dinyalakan dan policy-nya ada di `schema.sql`, jadi tidak perlu langkah tambahan.
 
 ## Endpoint API
 

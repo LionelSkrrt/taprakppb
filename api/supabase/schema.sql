@@ -32,10 +32,28 @@ create table if not exists mobile_suits (
 
 create index if not exists mobile_suits_series_id_idx on mobile_suits(series_id);
 
--- API membaca/menulis memakai anon key dari server Express.
--- Penulisan sendiri dijaga oleh header x-admin-key di API.
--- Jika RLS aktif di tabel ini, tambahkan policy berikut:
---   alter table series enable row level security;
---   alter table mobile_suits enable row level security;
---   create policy "anon all series"  on series        for all to anon using (true) with check (true);
---   create policy "anon all suits"   on mobile_suits  for all to anon using (true) with check (true);
+-- ---------------------------------------------------------------------------
+-- Row Level Security (RLS)
+-- ---------------------------------------------------------------------------
+-- RLS dinyalakan. Tanpa policy, RLS menolak semua akses dan query mengembalikan
+-- data kosong tanpa error, jadi policy di bawah wajib ada.
+--
+-- Key Supabase hanya dipegang server Express (env di Vercel), frontend tidak
+-- pernah memanggil Supabase langsung. Penulisan dijaga header x-admin-key di API.
+--   - Baca  : boleh untuk anon dan authenticated.
+--   - Tulis : boleh untuk anon (dipakai API dengan anon key), tetap lewat x-admin-key.
+-- Untuk pengamanan lebih ketat: hapus dua policy "write" di bawah, lalu isi
+-- SUPABASE_KEY di server dengan service_role key (jangan pernah dipakai di frontend).
+
+alter table series       enable row level security;
+alter table mobile_suits enable row level security;
+
+drop policy if exists "series read"  on series;
+drop policy if exists "series write" on series;
+drop policy if exists "suits read"   on mobile_suits;
+drop policy if exists "suits write"  on mobile_suits;
+
+create policy "series read"  on series       for select to anon, authenticated using (true);
+create policy "suits read"   on mobile_suits for select to anon, authenticated using (true);
+create policy "series write" on series       for all to anon using (true) with check (true);
+create policy "suits write"  on mobile_suits for all to anon using (true) with check (true);
