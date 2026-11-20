@@ -1,0 +1,125 @@
+# Gundam Nexus
+
+Ensiklopedia (wiki) Gundam berbentuk **Progressive Web App**: jelajahi mobile suit, pilot, faksi, dan serial tempat mereka muncul. Tugas Akhir Praktikum PPB (platform: **PWA**).
+
+| Bagian | Teknologi | Folder |
+|---|---|---|
+| Frontend (PWA) | React + Vite, React Router, Axios, vite-plugin-pwa | [`web/`](web) |
+| Backend (web service buatan sendiri, Modul 1) | Node.js + Express, Supabase | [`api/`](api) |
+
+## Pemenuhan ketentuan Tugas Akhir
+
+| Ketentuan | Implementasi |
+|---|---|
+| API sendiri sesuai Modul 1 | `api/` - Express + Supabase, struktur model / controller / routes |
+| Bottom Navigation Bar | `web/src/components/BottomNav.jsx` (Beranda, Unit, Series, Favorit, Profil) |
+| Minimal 5 halaman | 7 halaman: Beranda, Daftar Unit, Detail Unit, Daftar Series, Detail Series, Favorit, Profil |
+| 2 halaman list + detail | **Unit** (`/suits` -> `/suits/:id`) dan **Series** (`/series` -> `/series/:id`) |
+| Halaman Profile/About | `/profile` |
+| GitHub | repository ini |
+| PWA wajib deploy free hosting | Vercel (lihat bagian Deploy) |
+
+Tambahan: pencarian + filter, favorit (localStorage), tombol bagikan tautan, lazy-load gambar, query caching, mode offline (service worker), tombol "Pasang aplikasi".
+
+## Struktur
+
+```
+api/   Express API (src/models, src/controllers, src/routes, supabase/*.sql, test/)
+web/   React PWA   (src/pages, src/components, src/hooks, src/services, src/config)
+```
+
+## Menjalankan di lokal
+
+### 1. API
+
+```bash
+cd api
+npm install
+cp .env.example .env     # lalu isi bila memakai Supabase
+npm run dev              # http://localhost:3000
+```
+
+Tanpa `SUPABASE_URL`/`SUPABASE_KEY`, API otomatis memakai **data seed di memori** (11 series, 27 mobile suit) sehingga bisa langsung dicoba. Perubahan POST/PUT/DELETE hilang saat server restart. Cek `GET /` untuk melihat `dataSource` (`memory` atau `supabase`).
+
+### 2. Frontend
+
+```bash
+cd web
+npm install
+cp .env.example .env     # VITE_API_BASE_URL=http://localhost:3000/api
+npm run dev              # http://localhost:5173
+```
+
+Untuk mencoba mode PWA/offline (service worker hanya aktif pada build produksi):
+
+```bash
+npm run build
+npm run preview          # http://localhost:4173
+```
+
+## Memakai Supabase (data permanen)
+
+1. Buat project di [supabase.com](https://supabase.com).
+2. **SQL Editor** -> New query -> tempel isi [`api/supabase/schema.sql`](api/supabase/schema.sql) -> Run.
+3. New query lagi -> tempel isi [`api/supabase/seed.sql`](api/supabase/seed.sql) -> Run. (File ini dihasilkan dari `api/src/data/seed.js` lewat `npm run seed:sql`.)
+4. **Project Settings -> Data API** salin *Project URL*; **API Keys** salin *anon public*. Masukkan ke `api/.env` sebagai `SUPABASE_URL` dan `SUPABASE_KEY`.
+5. Jika tabel memakai Row Level Security, jalankan policy yang ada di komentar akhir `schema.sql`.
+
+## Endpoint API
+
+Base URL: `/api`. Respons JSON. Format error: `{ "error": "pesan" }`.
+
+| Method | Path | Keterangan |
+|---|---|---|
+| GET | `/series` | Semua series, urut tahun, berisi `mobile_suit_count`. `?q=` untuk cari |
+| GET | `/series/:id` | Detail series + daftar `mobile_suits` |
+| POST | `/series` | Tambah series *(butuh `x-admin-key`)* |
+| PUT | `/series/:id` | Ubah series *(admin)* |
+| DELETE | `/series/:id` | Hapus series dan unitnya *(admin)* |
+| GET | `/mobile-suits` | Semua unit + info `series`. `?q=` (nama, model, pilot, faksi), `?series_id=` |
+| GET | `/mobile-suits/:id` | Detail unit + `series` + `related` |
+| POST | `/mobile-suits` | Tambah unit *(admin)* |
+| PUT | `/mobile-suits/:id` | Ubah unit *(admin)* |
+| DELETE | `/mobile-suits/:id` | Hapus unit *(admin)* |
+
+Contoh body `POST /api/mobile-suits`:
+
+```json
+{
+  "name": "Gundam Barbatos Lupus",
+  "model_number": "ASW-G-08",
+  "series_id": 10,
+  "pilot": "Mikazuki Augus",
+  "faction": "Tekkadan",
+  "height_m": 18.0,
+  "armaments": ["Mace", "Lance"],
+  "description": "..."
+}
+```
+
+Endpoint tulis dilindungi header `x-admin-key` (nilai `ADMIN_KEY` di `.env`) agar API publik tidak bisa diubah sembarang orang. Di production tanpa `ADMIN_KEY`, endpoint tulis ditolak (403). Endpoint baca (GET) selalu terbuka, jadi aplikasi tidak perlu kunci apa pun.
+
+Tes otomatis API (14 skenario, mode memori): `cd api && npm test`.
+
+## Deploy (Vercel)
+
+Gunakan **dua project Vercel** dari repository yang sama.
+
+**API**
+1. Vercel -> Add New -> Project -> import repo ini. **Root Directory: `api`**.
+2. Environment Variables: `SUPABASE_URL`, `SUPABASE_KEY`, `ADMIN_KEY`, dan (opsional) `CORS_ORIGIN` = URL frontend.
+3. Deploy, lalu uji `https://<api>.vercel.app/api/series` di browser/Postman.
+
+**Frontend**
+1. Add New -> Project -> import repo yang sama. **Root Directory: `web`**, Framework Preset: Vite.
+2. Environment Variable: `VITE_API_BASE_URL` = `https://<api>.vercel.app/api`.
+3. Deploy. Rewrites SPA sudah diatur di `web/vercel.json`, jadi tautan langsung seperti `/suits/11` tetap bisa dibuka.
+
+Setelah itu: buka di HP -> menu browser -> *Add to Home screen / Pasang aplikasi*.
+
+## Catatan
+
+- **Gambar**: unit/series memakai ilustrasi buatan sendiri (gradien warna serial + V-fin + nomor model) karena kolom `image_url` masih kosong. Untuk memakai gambar asli, isi `image_url` dengan URL gambar; komponen otomatis memuatnya secara *lazy* dan kembali ke ilustrasi bila gagal.
+- **Data**: deskripsi ditulis sendiri. Angka tinggi/berat sebaiknya dicek ulang ke sumber resmi; nilai yang tidak pasti sengaja dikosongkan.
+- **Profil**: ubah nama, NIM, dan link GitHub di `web/src/config/profile.js`.
+- Gundam adalah merek dagang Sotsu/Sunrise/Bandai Namco. Proyek ini dibuat untuk keperluan belajar, bukan produk resmi.
