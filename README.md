@@ -7,6 +7,13 @@ Ensiklopedia (wiki) Gundam berbentuk **Progressive Web App**: jelajahi mobile su
 | Frontend (PWA) | React + Vite, React Router, Axios, vite-plugin-pwa | [`web/`](web) |
 | Backend (web service buatan sendiri, Modul 1) | Node.js + Express, Supabase | [`api/`](api) |
 
+## Demo (Vercel)
+
+| | URL |
+|---|---|
+| Aplikasi (PWA) | https://gundam-nexus-nine.vercel.app |
+| API | https://gundam-nexus-api.vercel.app (contoh: [`/api/series`](https://gundam-nexus-api.vercel.app/api/series), [`/api/mobile-suits`](https://gundam-nexus-api.vercel.app/api/mobile-suits)) |
+
 ## Pemenuhan ketentuan Tugas Akhir
 
 | Ketentuan | Implementasi |
