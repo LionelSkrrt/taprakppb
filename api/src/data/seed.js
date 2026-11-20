@@ -156,7 +156,7 @@ export const MOBILE_SUITS = [
     armaments: ["Beam Rifle", "Beam Saber", "60mm Vulcan", "Hyper Bazooka", "Shield"],
     description:
       "Mobile suit prototipe Federasi Bumi dari Proyek V. Armor Luna Titanium dan persenjataan beam membuatnya jauh melampaui Zaku. Di tangan Amuro Ray, unit ini menjadi simbol seluruh franchise.",
-    image_url: null,
+    image_url: "https://static.wikia.nocookie.net/gundam/images/3/36/01._RX-78-2_Gundam.jpg/revision/latest/scale-to-width-down/390?cb=20170821232511",
   },
   {
     id: 2,
@@ -171,7 +171,7 @@ export const MOBILE_SUITS = [
     armaments: ["240mm Cannon", "Beam Rifle"],
     description:
       "Mobile suit pendukung artileri dari Proyek V dengan dua meriam di pundak. Dalam serial ini dikemudikan Kai Shiden dan bertugas menembak dari belakang saat Gundam maju.",
-    image_url: null,
+    image_url: "https://static.wikia.nocookie.net/gundam/images/e/eb/Rx-77-2.jpg/revision/latest/scale-to-width-down/428?cb=20201105132335",
   },
   {
     id: 3,
@@ -186,7 +186,7 @@ export const MOBILE_SUITS = [
     armaments: ["Zaku Machine Gun", "Heat Hawk", "Zaku Bazooka"],
     description:
       "Zaku II versi komandan yang dicat merah dan dikenal sebagai \"Komet Merah\". Mobilitasnya jauh di atas Zaku biasa dan menjadi ikon rival Amuro, Char Aznable.",
-    image_url: null,
+    image_url: "https://static.wikia.nocookie.net/gundam/images/9/91/Ms-06s-standard.jpg/revision/latest/scale-to-width-down/366?cb=20130101071828",
   },
   {
     id: 4,
@@ -201,7 +201,7 @@ export const MOBILE_SUITS = [
     armaments: ["Heat Rod", "Finger Vulcan", "Shield with Machine Gun"],
     description:
       "Mobile suit tempur darat Zeon yang lebih gesit dari Zaku. Terkenal dipakai Ramba Ral, ace Zeon yang dihormati lawan maupun kawan.",
-    image_url: null,
+    image_url: "https://static.wikia.nocookie.net/gundam/images/d/d1/Ms-07b_1.jpg/revision/latest/scale-to-width-down/385?cb=20201101133303",
   },
   {
     id: 5,
@@ -216,7 +216,7 @@ export const MOBILE_SUITS = [
     armaments: ["Giant Bazooka", "Heat Saber"],
     description:
       "Mobile suit bertubuh tambun dengan pendorong hover. Meski tampak berat, Dom sangat lincah di darat dan terkenal lewat formasi Jet Stream Attack milik Black Tri-Stars.",
-    image_url: null,
+    image_url: "https://static.wikia.nocookie.net/gundam/images/3/3d/Ms-09R.jpg/revision/latest/scale-to-width-down/466?cb=20201106104407",
   },
 
   // ---- Zeta Gundam (2) ----
@@ -233,7 +233,7 @@ export const MOBILE_SUITS = [
     armaments: ["Beam Rifle", "Beam Saber", "Hyper Mega Launcher"],
     description:
       "Gundam transformable pertama yang berubah menjadi mode Waverider untuk penerbangan dan masuk atmosfer. Dirancang oleh Anaheim Electronics dan dikemudikan Kamille Bidan.",
-    image_url: null,
+    image_url: "https://static.wikia.nocookie.net/gundam/images/d/d9/Zeta_Gundam_Front_HD.png/revision/latest/scale-to-width-down/402?cb=20240911030026",
   },
   {
     id: 7,
@@ -248,7 +248,7 @@ export const MOBILE_SUITS = [
     armaments: ["Beam Rifle", "Beam Saber", "Clay Bazooka"],
     description:
       "Mobile suit berwarna emas yang dipakai Quattro Bajeena, identitas baru Char Aznable. Tampilan emasnya langsung mudah dikenali di medan perang.",
-    image_url: null,
+    image_url: "https://static.wikia.nocookie.net/gundam/images/8/8c/Msn-00100.jpg/revision/latest/scale-to-width-down/323?cb=20201007114351",
   },
   {
     id: 8,
@@ -263,7 +263,7 @@ export const MOBILE_SUITS = [
     armaments: ["Beam Rifle", "Beam Saber", "Sub-arms"],
     description:
       "Mobile suit raksasa milik Paptimus Scirocco dari Titans. Dilengkapi lengan tambahan di punggung yang bisa memegang senjata, membuatnya terlihat mengintimidasi.",
-    image_url: null,
+    image_url: "https://static.wikia.nocookie.net/gundam/images/8/85/Pmx-003.jpg/revision/latest/scale-to-width-down/455?cb=20121115202935",
   },
 
   // ---- Gundam ZZ (3) ----
@@ -280,7 +280,7 @@ export const MOBILE_SUITS = [
     armaments: ["Double Beam Rifle", "Hi-Mega Cannon", "Beam Saber"],
     description:
       "Gundam yang tersusun dari beberapa bagian yang bisa dipisah dan digabung kembali. Senjata utamanya, Hi-Mega Cannon di dahi, punya daya hancur sangat besar.",
-    image_url: null,
+    image_url: "https://static.wikia.nocookie.net/gundam/images/8/81/ZZ_Gundam_Front_HD.png/revision/latest/scale-to-width-down/435?cb=20260809140233",
   },
   {
     id: 10,
@@ -295,7 +295,7 @@ export const MOBILE_SUITS = [
     armaments: ["Funnel", "Beam Saber"],
     description:
       "Mobile suit khusus Newtype Neo Zeon dengan Funnel kendali pikiran. Haman Karn memakainya sebagai senjata utama dalam perebutan kekuasaan di era ZZ.",
-    image_url: null,
+    image_url: "https://static.wikia.nocookie.net/gundam/images/5/53/Amx-004.jpg/revision/latest/scale-to-width-down/640?cb=20180630133743",
   },
 
   // ---- Char's Counterattack (4) ----
@@ -312,7 +312,7 @@ export const MOBILE_SUITS = [
     armaments: ["Fin Funnel", "Beam Rifle", "Beam Saber", "Hyper Bazooka"],
     description:
       "Gundam rancangan Amuro Ray sendiri dengan sistem Fin Funnel yang dikendalikan lewat pikiran. Ia menjadi lawan utama Sazabi dalam duel penutup rivalitas Amuro dan Char.",
-    image_url: null,
+    image_url: "https://static.wikia.nocookie.net/gundam/images/8/8c/Rx-93.jpg/revision/latest/scale-to-width-down/349?cb=20201101140124",
   },
   {
     id: 12,
@@ -327,7 +327,7 @@ export const MOBILE_SUITS = [
     armaments: ["Funnel", "Beam Shot Rifle", "Beam Tomahawk"],
     description:
       "Mobile suit merah milik Char yang menjadi pasangan sebanding ν Gundam. Memakai psycho-frame dan dipersenjatai Funnel di punggung, dirancang khusus untuk pilot Newtype.",
-    image_url: null,
+    image_url: "https://static.wikia.nocookie.net/gundam/images/b/b8/MSN-04_Sazabi_-_Front.png/revision/latest/scale-to-width-down/470?cb=20171001171810",
   },
 
   // ---- Gundam Unicorn (5) ----
@@ -344,7 +344,7 @@ export const MOBILE_SUITS = [
     armaments: ["Beam Magnum", "Beam Saber", "Shield"],
     description:
       "Gundam dengan dua wujud: Unicorn Mode dengan satu tanduk, dan Destroy Mode dengan sistem NT-D ketika tanduknya terbelah menjadi V-fin dan armornya terbuka memperlihatkan psycho-frame merah.",
-    image_url: null,
+    image_url: "https://static.wikia.nocookie.net/gundam/images/b/b2/Unicorn_Gundam_Unicorn_Mode_front.png/revision/latest/scale-to-width-down/365?cb=20260603135516",
   },
   {
     id: 14,
@@ -359,7 +359,7 @@ export const MOBILE_SUITS = [
     armaments: ["Beam Saber", "Beam Rifle", "Beam Axe"],
     description:
       "Mobile suit merah-kuning milik Full Frontal, pemimpin Sleeves. Dibangun sebagai penerus Sazabi dan menjadi lawan utama Unicorn.",
-    image_url: null,
+    image_url: "https://static.wikia.nocookie.net/gundam/images/b/bc/Msn-06s.jpg/revision/latest/scale-to-width-down/476?cb=20160225053012",
   },
 
   // ---- Gundam Wing (6) ----
@@ -376,7 +376,7 @@ export const MOBILE_SUITS = [
     armaments: ["Buster Rifle", "Beam Saber", "Machine Cannon"],
     description:
       "Gundam utama Heero Yuy yang bisa berubah menjadi mode burung (bird mode). Terbuat dari Gundanium Alloy yang tahan terhadap hampir semua serangan konvensional.",
-    image_url: null,
+    image_url: "https://static.wikia.nocookie.net/gundam/images/8/8b/XXXG-01W_Wing_Gundam_TV_-_Front.png/revision/latest/scale-to-width-down/629?cb=20260930171614",
   },
   {
     id: 16,
@@ -391,7 +391,7 @@ export const MOBILE_SUITS = [
     armaments: ["Beam Scythe", "Buster Shield", "Active Cloak"],
     description:
       "Gundam hitam Duo Maxwell dengan sabit beam raksasa. Dilengkapi Active Cloak yang membuatnya sulit terdeteksi dan sangat cocok untuk serangan mendadak.",
-    image_url: null,
+    image_url: "https://static.wikia.nocookie.net/gundam/images/4/4a/Gundam_Deathscythe_Front_%28Official%29.png/revision/latest/scale-to-width-down/447?cb=20251010004851",
   },
   {
     id: 17,
@@ -406,7 +406,7 @@ export const MOBILE_SUITS = [
     armaments: ["Twin Buster Rifle", "Beam Saber", "Machine Cannon"],
     description:
       "Wing Gundam versi awal dengan Zero System yang menampilkan prediksi pertempuran langsung ke otak pilot. Terkenal bersayap malaikat yang megah dan Twin Buster Rifle yang mematikan.",
-    image_url: null,
+    image_url: "https://static.wikia.nocookie.net/gundam/images/5/59/Wing_Zero_TV_Front_%28Official%29.png/revision/latest/scale-to-width-down/489?cb=20251010041724",
   },
 
   // ---- G Gundam (7) ----
@@ -423,7 +423,7 @@ export const MOBILE_SUITS = [
     armaments: ["Shining Finger", "Beam Saber"],
     description:
       "Mobile Fighter wakil Neo Japan di Gundam Fight ke-13. Bergerak mengikuti gerakan pilotnya lewat sistem Mobile Trace, dengan jurus utama Shining Finger.",
-    image_url: null,
+    image_url: "https://static.wikia.nocookie.net/gundam/images/2/26/GF13-017NJ_Shining_Gundam_Normal_Front.png/revision/latest/scale-to-width-down/405?cb=20251012212555",
   },
   {
     id: 19,
@@ -438,7 +438,7 @@ export const MOBILE_SUITS = [
     armaments: ["God Finger", "Ishin Denshin"],
     description:
       "Evolusi Shining Gundam yang dipakai Domon Kasshu di fase akhir turnamen. Jurus andalannya adalah God Finger, serta teknik Ishin Denshin saat semangat pilotnya membara.",
-    image_url: null,
+    image_url: "https://static.wikia.nocookie.net/gundam/images/c/c9/God_Gundam_Front_%28transparent%29.png/revision/latest/scale-to-width-down/412?cb=20251012212727",
   },
 
   // ---- Gundam SEED (8) ----
@@ -455,7 +455,7 @@ export const MOBILE_SUITS = [
     armaments: ["Beam Rifle", "Beam Saber", "Armor Schneider", "IWSP Striker Pack"],
     description:
       "Prototipe Earth Alliance dengan sistem Striker Pack yang dapat ditukar sesuai misi. Dikemudikan Kira Yamato yang mengoptimalkan OS-nya langsung di tengah pertempuran.",
-    image_url: null,
+    image_url: "https://static.wikia.nocookie.net/gundam/images/e/ea/Strike_gundam_front_lineart_color.png/revision/latest/scale-to-width-down/346?cb=20251012205232",
   },
   {
     id: 21,
@@ -470,7 +470,7 @@ export const MOBILE_SUITS = [
     armaments: ["Beam Rifle", "Beam Saber", "Rail Gun", "Full Burst Mode"],
     description:
       "Gundam bertenaga reaktor nuklir yang dikembangkan ZAFT lalu direbut Three Ships Alliance. Sayap lebarnya menjadi ciri khas, dan mode Full Burst-nya menembakkan seluruh senjata sekaligus.",
-    image_url: null,
+    image_url: "https://static.wikia.nocookie.net/gundam/images/d/d1/Freedom_gundam_front_lineart_color.png/revision/latest/scale-to-width-down/462?cb=20260103063443",
   },
   {
     id: 22,
@@ -485,7 +485,7 @@ export const MOBILE_SUITS = [
     armaments: ["Beam Rifle", "Beam Saber", "Fatum-00"],
     description:
       "Gundam kembaran Freedom milik Athrun Zala. Sistem Fatum-00 di punggungnya bisa dilepas dan dikendalikan terpisah dari bodi utama.",
-    image_url: null,
+    image_url: "https://static.wikia.nocookie.net/gundam/images/b/bc/Justice_gundam_front_lineart_color.png/revision/latest/scale-to-width-down/438?cb=20251011054614",
   },
 
   // ---- Gundam 00 (9) ----
@@ -502,7 +502,7 @@ export const MOBILE_SUITS = [
     armaments: ["GN Sword", "GN Long Blade", "GN Short Blade", "GN Beam Dagger"],
     description:
       "Gundam generasi pertama Celestial Being yang mengandalkan GN Drive. Kekuatan jarak dekatnya sangat tinggi dan mode Trans-Am menaikkan seluruh performanya dalam waktu singkat.",
-    image_url: null,
+    image_url: "https://static.wikia.nocookie.net/gundam/images/d/d9/GN-001_%28Front%29.png/revision/latest/scale-to-width-down/324?cb=20210804123915",
   },
   {
     id: 24,
@@ -517,7 +517,7 @@ export const MOBILE_SUITS = [
     armaments: ["GN Sword", "GN Beam Saber"],
     description:
       "Gundam dengan dua GN Drive (Twin Drive) yang menghasilkan energi sangat besar. Dikemudikan Setsuna F. Seiei dan menjadi inti dari pertarungan menghadapi aliansi dunia.",
-    image_url: null,
+    image_url: "https://static.wikia.nocookie.net/gundam/images/9/98/Gn-0000.jpg/revision/latest/scale-to-width-down/381?cb=20201114145012",
   },
 
   // ---- Iron-Blooded Orphans (10) ----
@@ -534,12 +534,12 @@ export const MOBILE_SUITS = [
     armaments: ["Mace", "Lance", "200mm Cannon"],
     description:
       "Mobile suit berusia ratusan tahun berbasis Gundam Frame dengan dua reaktor Ahab. Gaya bertarungnya brutal dan tanpa banyak senjata, mengandalkan mace berat dan kemampuan Mikazuki.",
-    image_url: null,
+    image_url: "https://static.wikia.nocookie.net/gundam/images/8/8e/ASW-G-08_Gundam_Barbatos_1st_Form_%28Front%29.png/revision/latest?cb=20181007005623",
   },
   {
     id: 26,
     name: "Gundam Vidar",
-    model_number: "ASW-G-47",
+    model_number: "ASW-G-XX",
     series_id: 10,
     pilot: "Gaelio Bauduin",
     faction: "Gjallarhorn",
@@ -549,7 +549,7 @@ export const MOBILE_SUITS = [
     armaments: [],
     description:
       "Mobile frame Gundam Frame milik Gaelio Bauduin dari Gjallarhorn, organisasi yang menguasai keamanan Bumi. Menjadi lawan sepadan Barbatos dan menunjukkan kekuatan teknologi Gjallarhorn.",
-    image_url: null,
+    image_url: "https://static.wikia.nocookie.net/gundam/images/f/f3/Gundam_vidar_front_lineart_color.png/revision/latest/scale-to-width-down/452?cb=20251012031335",
   },
 
   // ---- The Witch from Mercury (11) ----
@@ -566,6 +566,6 @@ export const MOBILE_SUITS = [
     armaments: ["Beam Saber", "Bit Staves"],
     description:
       "Gundam yang dipakai Suletta Mercury di Asticassia. Dilengkapi Bit Staves yang berfungsi sebagai perisai dan senjata, serta sistem GUND-Format yang menyimpan rahasia besar.",
-    image_url: null,
+    image_url: "https://static.wikia.nocookie.net/gundam/images/3/3d/Gundam_Aerial_Bit_On_Form_Front.png/revision/latest/scale-to-width-down/498?cb=20260809142138",
   },
 ];

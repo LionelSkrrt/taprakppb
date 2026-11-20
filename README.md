@@ -126,7 +126,7 @@ Setelah itu: buka di HP -> menu browser -> *Add to Home screen / Pasang aplikasi
 
 ## Catatan
 
-- **Gambar**: unit/series memakai ilustrasi buatan sendiri (gradien warna serial + V-fin + nomor model) karena kolom `image_url` masih kosong. Untuk memakai gambar asli, isi `image_url` dengan URL gambar; komponen otomatis memuatnya secara *lazy* dan kembali ke ilustrasi bila gagal.
+- **Gambar**: 27 gambar unit dimuat (hotlink, tidak disimpan di repo) dari [Gundam Wiki](https://gundam.fandom.com); hak ciptanya milik Sotsu/Sunrise, dan sumbernya dicantumkan di halaman Profil. Server gambar wiki menolak permintaan yang membawa header Referer, jadi tag `<img>` memakai `referrerPolicy="no-referrer"`. Jika sebuah gambar gagal dimuat, komponen otomatis kembali ke ilustrasi buatan sendiri (gradien warna serial + V-fin + nomor model). Gambar series belum diisi (`image_url` kosong).
 - **Data**: deskripsi ditulis sendiri. Angka tinggi/berat sebaiknya dicek ulang ke sumber resmi; nilai yang tidak pasti sengaja dikosongkan.
 - **Profil**: ubah nama, NIM, dan link GitHub di `web/src/config/profile.js`.
 - Gundam adalah merek dagang Sotsu/Sunrise/Bandai Namco. Proyek ini dibuat untuk keperluan belajar, bukan produk resmi.

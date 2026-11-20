@@ -8,13 +8,14 @@ export default function SuitArt({ image, accent = '#35d4ff', label = '', alt = '
   const showImage = image && !failed
 
   return (
-    <div className={`art ${className}`} style={{ '--accent': accent }}>
+    <div className={`art ${showImage ? 'art-photo' : ''} ${className}`} style={{ '--accent': accent }}>
       {showImage ? (
         <img
           src={image}
           alt={alt}
           loading="lazy"
           decoding="async"
+          referrerPolicy="no-referrer"
           onError={() => setFailed(true)}
         />
       ) : (

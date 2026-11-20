@@ -48,6 +48,14 @@ export default function Profile() {
           persenjataannya, lalu telusuri serial tempat mereka muncul. Data diambil dari web service buatan sendiri
           (Express + Supabase), dan aplikasi ini berupa Progressive Web App yang bisa dipasang dan dibuka offline.
         </p>
+        <p className="muted small credit">
+          Gambar mobile suit dimuat dari{' '}
+          <a href="https://gundam.fandom.com" target="_blank" rel="noreferrer">
+            Gundam Wiki
+          </a>
+          . Gundam dan seluruh karakternya adalah hak cipta Sotsu / Sunrise. Aplikasi ini dibuat untuk keperluan
+          belajar dan bukan produk resmi.
+        </p>
       </section>
 
       <section className="panel">

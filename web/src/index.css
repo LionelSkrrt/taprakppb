@@ -198,7 +198,14 @@ button { font: inherit; color: inherit; }
   position: relative; aspect-ratio: 10 / 7; overflow: hidden;
   background: linear-gradient(145deg, color-mix(in srgb, var(--accent, #35d4ff) 38%, #0b1020), color-mix(in srgb, var(--accent, #35d4ff) 8%, #0b1020));
 }
-.art img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* Gambar unit berupa figur seluruh badan: contain agar kepala/kaki tidak terpotong.
+   Latar terang + multiply membuat latar putih pada gambar JPG menyatu dengan panel,
+   sedangkan PNG transparan tetap rapi. Garis aksen warna serial di bawah panel. */
+.art-photo {
+  background: radial-gradient(circle at 50% 30%, #ffffff 0%, #e6ecf8 70%, #d7e0f1 100%);
+  box-shadow: inset 0 -3px 0 var(--accent, #35d4ff);
+}
+.art img { width: 100%; height: 100%; object-fit: contain; display: block; padding: 0.35rem; mix-blend-mode: multiply; }
 .art svg { width: 100%; height: 100%; display: block; }
 .art-grid line { stroke: var(--accent, #35d4ff); stroke-opacity: 0.12; stroke-width: 0.5; }
 .art-ring { fill: none; stroke: var(--accent, #35d4ff); stroke-opacity: 0.55; stroke-width: 1.2; }
@@ -241,6 +248,7 @@ button { font: inherit; color: inherit; }
 .about-card { display: flex; align-items: center; gap: 1rem; }
 .about-card img { border-radius: 16px; border: 1px solid var(--line); }
 .about-card h2 { margin: 0; color: var(--text); font-size: 1.3rem; text-transform: none; letter-spacing: 0; }
+.credit { margin-top: 0.6rem; }
 .ok, .bad { display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.4rem; }
 .ok { color: var(--green); }
 .bad { color: var(--red); }
