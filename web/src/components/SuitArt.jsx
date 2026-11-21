@@ -1,5 +1,12 @@
 import { useState } from 'react'
 
+// Server gambar wiki membalas 404 (di-cache browser 1 jam) untuk permintaan yang membawa
+// header Referer. Parameter versi ini memberi tiap gambar kunci cache baru sehingga balasan
+// 404 lama di browser mana pun tidak terpakai. Naikkan angkanya bila perlu membuang cache lagi.
+const IMAGE_CACHE_VERSION = 2
+const withVersion = (url) =>
+  /static\.wikia\.nocookie\.net/.test(url) ? `${url}${url.includes('?') ? '&' : '?'}v=${IMAGE_CACHE_VERSION}` : url
+
 // Gambar unit/serial. Jika image_url kosong atau gagal dimuat, tampilkan
 // ilustrasi buatan sendiri (gradien warna serial + V-fin + nomor model),
 // sehingga tidak bergantung pada gambar berhak cipta.
@@ -11,7 +18,7 @@ export default function SuitArt({ image, accent = '#35d4ff', label = '', alt = '
     <div className={`art ${showImage ? 'art-photo' : ''} ${className}`} style={{ '--accent': accent }}>
       {showImage ? (
         <img
-          src={image}
+          src={withVersion(image)}
           alt={alt}
           loading="lazy"
           decoding="async"
