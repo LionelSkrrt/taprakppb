@@ -41,12 +41,16 @@ export default defineConfig({
           },
           {
             // Gambar unit/serial dari sumber eksternal.
+            // Hanya respons 200 yang disimpan. Gambar dimuat dengan crossOrigin="anonymous"
+            // (lihat SuitArt) sehingga respons bukan "opaque" dan statusnya terbaca; dengan
+            // begitu gambar pengganti 404 dari server gambar tidak ikut tersimpan.
+            // Nama cache diberi -v2 agar entri lama yang sudah tercemar tidak dipakai lagi.
             urlPattern: ({ request }) => request.destination === 'image',
             handler: 'CacheFirst',
             options: {
-              cacheName: 'gundam-images',
+              cacheName: 'gundam-images-v2',
               expiration: { maxEntries: 80, maxAgeSeconds: 60 * 60 * 24 * 30 },
-              cacheableResponse: { statuses: [0, 200] },
+              cacheableResponse: { statuses: [200] },
             },
           },
         ],

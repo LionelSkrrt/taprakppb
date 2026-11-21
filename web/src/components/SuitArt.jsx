@@ -16,6 +16,7 @@ export default function SuitArt({ image, accent = '#35d4ff', label = '', alt = '
           loading="lazy"
           decoding="async"
           referrerPolicy="no-referrer"
+          crossOrigin="anonymous"
           onError={() => setFailed(true)}
         />
       ) : (
