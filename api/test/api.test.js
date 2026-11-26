@@ -9,6 +9,7 @@ process.env.ADMIN_KEY = "rahasia-test";
 process.env.NODE_ENV = "test";
 
 const { default: app } = await import("../src/index.js");
+const { SERIES, MOBILE_SUITS } = await import("../src/data/seed.js");
 
 let server;
 let base;
@@ -37,19 +38,19 @@ test("GET / menampilkan info API", async () => {
   assert.equal(body.dataSource, "memory");
 });
 
-test("GET /api/series mengembalikan 11 series berurutan tahun + jumlah unit", async () => {
+test("GET /api/series mengembalikan semua series berurutan tahun + jumlah unit", async () => {
   const body = await (await call("/api/series")).json();
-  assert.equal(body.length, 11);
+  assert.equal(body.length, SERIES.length);
   const years = body.map((s) => s.year);
   assert.deepEqual(years, [...years].sort((a, b) => a - b));
   assert.ok(body.every((s) => typeof s.mobile_suit_count === "number"));
-  assert.equal(body.reduce((n, s) => n + s.mobile_suit_count, 0), 27);
+  assert.equal(body.reduce((n, s) => n + s.mobile_suit_count, 0), MOBILE_SUITS.length);
 });
 
 test("GET /api/series?q= mencari", async () => {
   const body = await (await call("/api/series?q=seed")).json();
   assert.ok(body.some((s) => s.slug === "gundam-seed"));
-  assert.ok(body.length < 11);
+  assert.ok(body.length < SERIES.length);
 });
 
 test("GET /api/series/:id memuat daftar mobile suit", async () => {
@@ -66,9 +67,9 @@ test("GET /api/series/:id tidak ada -> 404, id bukan angka -> 404", async () => 
   assert.equal((await call("/api/series/abc")).status, 404);
 });
 
-test("GET /api/mobile-suits mengembalikan 27 unit dengan info series", async () => {
+test("GET /api/mobile-suits mengembalikan semua unit dengan info series", async () => {
   const body = await (await call("/api/mobile-suits")).json();
-  assert.equal(body.length, 27);
+  assert.equal(body.length, MOBILE_SUITS.length);
   assert.ok(body.every((m) => m.series && m.series.name));
 });
 
@@ -186,4 +187,14 @@ test("route tidak dikenal -> 404 JSON", async () => {
   const res = await call("/api/tidak-ada");
   assert.equal(res.status, 404);
   assert.ok((await res.json()).error);
+});
+
+test("data seed konsisten: id unik, series_id valid, tiap unit punya gambar", () => {
+  const uniq = (a) => new Set(a).size === a.length;
+  assert.ok(uniq(SERIES.map((s) => s.id)) && uniq(MOBILE_SUITS.map((m) => m.id)));
+  assert.ok(uniq(SERIES.map((s) => s.slug)));
+  const ids = new Set(SERIES.map((s) => s.id));
+  assert.ok(MOBILE_SUITS.every((m) => ids.has(m.series_id)));
+  assert.ok(SERIES.every((s) => MOBILE_SUITS.some((m) => m.series_id === s.id)));
+  assert.ok(MOBILE_SUITS.every((m) => typeof m.image_url === "string" && m.image_url.startsWith("https://")));
 });

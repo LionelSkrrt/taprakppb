@@ -46,7 +46,7 @@ cp .env.example .env     # lalu isi bila memakai Supabase
 npm run dev              # http://localhost:3000
 ```
 
-Tanpa `SUPABASE_URL`/`SUPABASE_KEY`, API otomatis memakai **data seed di memori** (11 series, 27 mobile suit) sehingga bisa langsung dicoba. Perubahan POST/PUT/DELETE hilang saat server restart. Cek `GET /` untuk melihat `dataSource` (`memory` atau `supabase`).
+Tanpa `SUPABASE_URL`/`SUPABASE_KEY`, API otomatis memakai **data seed di memori** (21 series, 62 mobile suit) sehingga bisa langsung dicoba. Perubahan POST/PUT/DELETE hilang saat server restart. Cek `GET /` untuk melihat `dataSource` (`memory` atau `supabase`).
 
 ### 2. Frontend
 
@@ -106,7 +106,7 @@ Contoh body `POST /api/mobile-suits`:
 
 Endpoint tulis dilindungi header `x-admin-key` (nilai `ADMIN_KEY` di `.env`) agar API publik tidak bisa diubah sembarang orang. Di production tanpa `ADMIN_KEY`, endpoint tulis ditolak (403). Endpoint baca (GET) selalu terbuka, jadi aplikasi tidak perlu kunci apa pun.
 
-Tes otomatis API (14 skenario, mode memori): `cd api && npm test`.
+Tes otomatis API (15 skenario, mode memori, termasuk cek konsistensi data seed): `cd api && npm test`.
 
 ## Deploy (Vercel)
 
@@ -126,7 +126,7 @@ Setelah itu: buka di HP -> menu browser -> *Add to Home screen / Pasang aplikasi
 
 ## Catatan
 
-- **Gambar**: 27 gambar unit dimuat (hotlink, tidak disimpan di repo) dari [Gundam Wiki](https://gundam.fandom.com); hak ciptanya milik Sotsu/Sunrise, dan sumbernya dicantumkan di halaman Profil. Server gambar wiki menolak permintaan yang membawa header Referer, jadi tag `<img>` memakai `referrerPolicy="no-referrer"`. Jika sebuah gambar gagal dimuat, komponen otomatis kembali ke ilustrasi buatan sendiri (gradien warna serial + V-fin + nomor model). Gambar series belum diisi (`image_url` kosong).
+- **Gambar**: 62 gambar unit dimuat (hotlink, tidak disimpan di repo) dari [Gundam Wiki](https://gundam.fandom.com); hak ciptanya milik Sotsu/Sunrise, dan sumbernya dicantumkan di halaman Profil. Server gambar wiki menolak permintaan yang membawa header Referer, jadi tag `<img>` memakai `referrerPolicy="no-referrer"`. Jika sebuah gambar gagal dimuat, komponen otomatis kembali ke ilustrasi buatan sendiri (gradien warna serial + V-fin + nomor model). Gambar series belum diisi (`image_url` kosong).
 - **Data**: deskripsi ditulis sendiri. Angka tinggi/berat sebaiknya dicek ulang ke sumber resmi; nilai yang tidak pasti sengaja dikosongkan.
 - **Profil**: ubah nama, NIM, dan link GitHub di `web/src/config/profile.js`.
 - Gundam adalah merek dagang Sotsu/Sunrise/Bandai Namco. Proyek ini dibuat untuk keperluan belajar, bukan produk resmi.
