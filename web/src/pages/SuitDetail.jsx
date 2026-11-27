@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router-dom'
+import { GitCompareArrows } from 'lucide-react'
 import { useSuit } from '../hooks/useCatalog'
 import BackLink from '../components/BackLink'
 import SuitArt from '../components/SuitArt'
@@ -42,6 +43,9 @@ export default function SuitDetail() {
             <div className="actions">
               <FavoriteButton id={suit.id} name={suit.name} />
               <ShareButton title={`${suit.name} - Gundam Nexus`} text={`${suit.name} (${suit.model_number})`} />
+              <Link to={`/compare?ids=${suit.id}`} className="btn">
+                <GitCompareArrows size={16} aria-hidden="true" /> Bandingkan
+              </Link>
             </div>
           </header>
 

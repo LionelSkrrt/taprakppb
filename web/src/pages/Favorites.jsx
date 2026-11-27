@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Heart } from 'lucide-react'
+import { GitCompareArrows, Heart } from 'lucide-react'
 import { useSuits } from '../hooks/useCatalog'
 import { useFavorites } from '../hooks/useFavorites'
 import SuitCard from '../components/SuitCard'
@@ -34,7 +34,20 @@ export default function Favorites() {
       {ids.length > 0 && error && <ErrorState message={error} onRetry={retry} />}
       {favorites.length > 0 && (
         <>
-          <p className="count">{favorites.length} unit</p>
+          <div className="row-between">
+            <p className="count">{favorites.length} unit</p>
+            {favorites.length >= 2 && (
+              <Link
+                to={`/compare?ids=${favorites
+                  .slice(0, 3)
+                  .map((s) => s.id)
+                  .join(',')}`}
+                className="btn"
+              >
+                <GitCompareArrows size={16} aria-hidden="true" /> Bandingkan favorit
+              </Link>
+            )}
+          </div>
           <div className="grid">
             {favorites.map((s) => (
               <SuitCard key={s.id} suit={s} />

@@ -20,13 +20,19 @@ Ensiklopedia (wiki) Gundam berbentuk **Progressive Web App**: jelajahi mobile su
 |---|---|
 | API sendiri sesuai Modul 1 | `api/` - Express + Supabase, struktur model / controller / routes |
 | Bottom Navigation Bar | `web/src/components/BottomNav.jsx` (Beranda, Unit, Series, Favorit, Profil) |
-| Minimal 5 halaman | 7 halaman: Beranda, Daftar Unit, Detail Unit, Daftar Series, Detail Series, Favorit, Profil |
+| Minimal 5 halaman | 8 halaman: Beranda, Daftar Unit, Detail Unit, Daftar Series, Detail Series, Favorit, Profil, Bandingkan |
 | 2 halaman list + detail | **Unit** (`/suits` -> `/suits/:id`) dan **Series** (`/series` -> `/series/:id`) |
 | Halaman Profile/About | `/profile` |
 | GitHub | repository ini |
 | PWA wajib deploy free hosting | Vercel (lihat bagian Deploy) |
 
-Tambahan: pencarian + filter, favorit (localStorage), tombol bagikan tautan, lazy-load gambar, query caching, mode offline (service worker), tombol "Pasang aplikasi".
+Tambahan: pencarian + filter, favorit (localStorage), tombol bagikan tautan, lazy-load gambar, query caching, mode offline (service worker), tombol "Pasang aplikasi", dan **perbandingan mobile suit** (`/compare`).
+
+### Fitur Bandingkan
+- Pilih 2 sampai 3 unit lalu bandingkan series, pilot, faksi, tipe, tinggi, berat, jumlah senjata, dan persenjataan. Nilai tertinggi disorot hijau, senjata yang sama disorot emas, dan ada ringkasan persamaan.
+- Jalan masuk: kartu di Beranda, tombol di halaman Unit, tombol **Bandingkan** di detail unit, dan **Bandingkan favorit** di halaman Favorit. Pilihan tersimpan di URL (`/compare?ids=1,11`) sehingga bisa dibagikan.
+- **Riwayat perbandingan** disimpan di `localStorage` beserta salinan data unitnya, jadi tetap bisa dibuka offline. Kombinasi yang sama tidak diduplikasi; maksimal 30 entri, bisa dihapus satu per satu atau semuanya.
+- **Offline**: daftar unit lengkap juga disalin ke `localStorage` setiap kali berhasil dimuat, sehingga halaman Bandingkan dan detail unit tetap bisa dibuka walau cache service worker kosong.
 
 ## Struktur
 

@@ -7,6 +7,7 @@ import SeriesList from './pages/SeriesList'
 import SeriesDetail from './pages/SeriesDetail'
 import Favorites from './pages/Favorites'
 import Profile from './pages/Profile'
+import Compare from './pages/Compare'
 import NotFound from './pages/NotFound'
 
 export default function App() {
@@ -20,6 +21,7 @@ export default function App() {
         <Route path="series/:id" element={<SeriesDetail />} />
         <Route path="favorites" element={<Favorites />} />
         <Route path="profile" element={<Profile />} />
+        <Route path="compare" element={<Compare />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

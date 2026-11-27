@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
+import { GitCompareArrows } from 'lucide-react'
 import { useSeriesList, useSuits } from '../hooks/useCatalog'
 import SearchBox from '../components/SearchBox'
 import SuitCard from '../components/SuitCard'
@@ -55,9 +56,14 @@ export default function Suits() {
 
   return (
     <div className="page">
-      <header className="page-head">
-        <h1>Mobile Suit</h1>
-        <p className="muted">Telusuri seluruh unit dan buka detail spesifikasinya.</p>
+      <header className="page-head page-head-row">
+        <div>
+          <h1>Mobile Suit</h1>
+          <p className="muted">Telusuri seluruh unit dan buka detail spesifikasinya.</p>
+        </div>
+        <Link to="/compare" className="btn">
+          <GitCompareArrows size={16} aria-hidden="true" /> Bandingkan
+        </Link>
       </header>
 
       <SearchBox

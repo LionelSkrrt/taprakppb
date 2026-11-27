@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { ChevronRight, Search } from 'lucide-react'
+import { ChevronRight, GitCompareArrows, Search } from 'lucide-react'
 import { useSeriesList, useSuits } from '../hooks/useCatalog'
+import { useCompareHistory } from '../hooks/useCompareHistory'
 import SuitArt from '../components/SuitArt'
 import { ErrorState } from '../components/StateView'
 
@@ -17,6 +18,7 @@ export default function Home() {
   const [query, setQuery] = useState('')
   const suits = useSuits()
   const series = useSeriesList()
+  const { entries: compareHistory } = useCompareHistory()
 
   const featured = pickDaily(suits.data)
 
@@ -94,6 +96,22 @@ export default function Home() {
           </Link>
         </section>
       )}
+
+      <section>
+        <Link to="/compare" className="card compare-cta">
+          <span className="cta-icon">
+            <GitCompareArrows size={22} aria-hidden="true" />
+          </span>
+          <span className="cta-text">
+            <strong>Bandingkan mobile suit</strong>
+            <span className="muted">
+              Adu spesifikasi 2 sampai 3 unit berdampingan, bisa offline
+              {compareHistory.length > 0 && ` · ${compareHistory.length} perbandingan tersimpan`}
+            </span>
+          </span>
+          <ChevronRight className="chevron" aria-hidden="true" />
+        </Link>
+      </section>
 
       {series.data && (
         <section>
